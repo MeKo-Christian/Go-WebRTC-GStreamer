@@ -8,8 +8,6 @@ In this extension, we strive to build a signalling server and automate the excha
 
 Additionally, we try to remember the publisher and client so as to reconnect upon a loss of connection.
 
-# Usage
-
 ## Quick Start with Just
 
 This project includes a `justfile` for convenient development commands. Install [just](https://github.com/casey/just) and run:
