@@ -1,0 +1,78 @@
+# run with treefmt --allow-missing-formatter
+
+[global]
+excludes = [
+  # hidden & repo files
+  ".*",
+  "**/.*",
+  "CODEOWNERS",
+  # generated files
+  "**/*.resolvers.go",
+  "**/generated.go",
+  "**/*_gen.go",
+  # Dockerfile
+  "**/Dockerfile",
+  # static files
+  "**/static/**",
+  # templates
+  "**/template/**",
+  "*.html",
+  # README and docs
+  "**/README.md",
+  "README.md",
+  "CHANGELOG.md",
+  "CLAUDE.md",
+  "PLAN.md",
+  # txt files
+  "**/*.txt",
+  "version.txt",
+  # gitignore
+  "**/.gitignore",
+  # go.sum
+  "**/go.sum",
+  "go.sum",
+  # go.mod
+  "**/go.mod",
+  "go.mod",
+  # makefiles
+  "Makefile",
+  "**/Makefile",
+  "**/*.mk",
+  # docker
+  "docker-compose.yml",
+  "**/docker-compose.yml",
+]
+
+### Misc
+
+[formatter.prettier]
+command = "prettier"
+options = ["-w"]
+includes = ["*.css", "*.yaml", "*.yml", "*.js", "*.json", "*.md"]
+excludes = [".release-please-manifest.json"]
+
+### Go
+
+[formatter.gofumpt]
+command = "gofumpt"
+options = ["-w"]
+includes = ["*.go"]
+excludes = ["**/*.gen.go"]
+
+[formatter.gci]
+command = "gci"
+options = ["-w"]
+includes = ["*.go"]
+priority = 1
+
+### Shell
+
+[formatter.shellcheck]
+command = "shellcheck"
+includes = ["*.sh"]
+
+[formatter.shfmt]
+command = "shfmt"
+options = ["-s", "-w"]
+includes = ["*.sh"]
+priority = 1

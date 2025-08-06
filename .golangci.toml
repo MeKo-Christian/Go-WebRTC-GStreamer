@@ -1,0 +1,63 @@
+# golangci-lint configuration for WebRTC SFU project
+
+version = "2"
+
+[run]
+timeout = "5m"
+skip-dirs = [
+  "bin",
+  "static",
+  "template"
+]
+
+[[issues.exclude-rules]]
+# no longer a problem in go 1.22
+linters = ["gosec"]
+text = "G601:"
+
+[linters]
+# Use default linters plus some additional useful ones
+enable = [
+  # Default linters (already enabled)
+  "errcheck",
+  "govet",
+  "ineffassign",
+  "staticcheck",
+  "unused",
+  # Additional useful linters
+  "bodyclose",
+  "goconst",
+  "gocritic",
+  "gosec",
+  "misspell",
+  "revive",
+  "unconvert",
+  "unparam",
+  "varnamelen",
+  "whitespace",
+  "wastedassign",
+  "prealloc"
+]
+
+[linters-settings.varnamelen]
+ignore-names = [
+  "rx",
+  "tx", 
+  "db",
+  "ok",
+  "mw",
+  "gw",
+  "rt",
+  "id",
+  "mx",
+  "pc",
+  "i",
+  "j",
+  "k",
+  "w",
+  "r"
+]
+ignore-decls = [
+  "w http.ResponseWriter",
+  "r *http.Request"
+]
